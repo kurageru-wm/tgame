@@ -1,0 +1,4 @@
+(define-module tgame
+  (extend tgame.task.task))
+
+(provide "tgame")

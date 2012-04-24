@@ -1,0 +1,19 @@
+(define-module tgame.strategy.strategies
+  (use tui)
+  (export-all)
+  )
+
+(select-module tgame.strategy.strategies)
+
+
+(define-class <strategy> ()
+  ((
+
+
+(define (pattern me . args)  
+  (let1 p (load-pattern "pat1")
+        (
+
+
+
+(provide "tgame/strategy/strategies")

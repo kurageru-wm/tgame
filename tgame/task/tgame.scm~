@@ -1,0 +1,38 @@
+(define-module tgame
+  (use tui)
+  (export-all)
+  )
+
+(select-module tgame)
+
+;; (define keys (make <events>))
+;; (add-event keys 'a (lambda (args) (print args)))
+;; (call keys 'a 1 2 3)
+;; (keys 'a 1 2 3)
+
+
+(define-class <cobject> (<nchar>)
+  ((strategy :init-keyword :strategy
+             :init-value (make-hash-table)
+             :accessor str-of)
+   ))
+
+
+(define-method add-strategy ((obj <cobject>) key (str <procedure>))  
+  (hash-table-put! (str-of obj) key str))
+
+(define-method command ((obj <cobject>) key . objs)
+  ((hash-table-get (str-of obj) key) obj objs))
+
+;; (define (print2 x objs)
+;; )
+
+;; (define p (make <cobject>))
+;; (print (str-of p))
+;; (add-strategy p 'a print2)
+;; (add-strategy p 'b print)
+
+;; (command p 'b 'a 'b 'c 'd 'e)
+
+
+(provide "tgame")
